@@ -1,5 +1,6 @@
 package magento.util;
 
+import magento.pages.Order;
 import magento.pages.SignIn;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +15,7 @@ public class Global {
     public WebDriverWait wait;
     public final int TIMEOUT = 10;
     public SignIn signIn;
+    public Order order;
 
     @BeforeMethod
     public void setUp() {
@@ -22,6 +24,7 @@ public class Global {
         wait = new WebDriverWait(driver, TIMEOUT);
         driver.manage().window().maximize();
         signIn = new SignIn(driver, wait);
+        order = new Order(driver, wait);
     }
 
     @AfterMethod

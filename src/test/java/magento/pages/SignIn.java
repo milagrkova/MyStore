@@ -10,10 +10,11 @@ public class SignIn {
     private WebDriver driver;
     private WebDriverWait wait;
     By loginButton = By.className("login");
-    By pageSubHeading = By.className("page-subheading");
+    By pageSubHeading = By.xpath("//*[@id=\"login_form\"]/h3");
     By username = By.id("email");
     By password = By.id("passwd");
     By submit = By.id("SubmitLogin");
+    By info = By.className("info-account");
 
 
     public SignIn(WebDriver driver, WebDriverWait wait){
@@ -23,6 +24,7 @@ public class SignIn {
     public void navigateToHomePage(String url){
         driver.get(url);
     }
+
 
     public void enterEmail(String name){
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton)).click();
@@ -40,6 +42,12 @@ public class SignIn {
     public void clickSubmit(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(submit)).click();
     }
+
+    public String getMyAccountText(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(info)).getText();
+    }
+
+
 
 
 
