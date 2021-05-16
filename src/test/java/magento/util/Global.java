@@ -1,7 +1,6 @@
 package magento.util;
 
-import magento.pages.Order;
-import magento.pages.SignIn;
+import magento.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +15,9 @@ public class Global {
     public final int TIMEOUT = 10;
     public SignIn signIn;
     public Order order;
+    public ShoppingCard shoppingCard;
+    public AddressAndShipping addressAndShipping;
+    public Payment payment;
 
     @BeforeMethod
     public void setUp() {
@@ -25,6 +27,10 @@ public class Global {
         driver.manage().window().maximize();
         signIn = new SignIn(driver, wait);
         order = new Order(driver, wait);
+        shoppingCard = new ShoppingCard(driver, wait);
+        addressAndShipping = new AddressAndShipping(driver, wait);
+        payment = new Payment(driver, wait);
+
     }
 
     @AfterMethod
