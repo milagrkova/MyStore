@@ -14,7 +14,7 @@ public class BuyDressTest extends Global {
     @DataProvider(name = "Personal info")
     public Object[][] personalInfoData() {
         return new Object[][]{
-                {"mila.grkova@gmail.com", "@Dm!N2021"}
+                {"testiramila@gmail.com", "123456"}
         };
     }
     @Test (dataProvider = "Personal info")
@@ -44,7 +44,7 @@ public class BuyDressTest extends Global {
 //        Assert.assertEquals(shoppingCard.getPrintedDressText(), "Color : Pink, Size : M");
 //        Assert.assertEquals(shoppingCard.getTotalPriceText(), "$101.98");
         shoppingCard.scrollDown();
-        Assert.assertEquals(shoppingCard.getAddressNameText(), "Mila Grkova");
+        Assert.assertEquals(shoppingCard.getAddressNameText(), "Mila Testira");
         Assert.assertEquals(shoppingCard.getAddressAddressText(), "Skopje, Massachusetts 10000");
         Assert.assertEquals(shoppingCard.getAddressCityText(), "Test address");
         Assert.assertEquals(shoppingCard.getAddressPhoneText(), "09889889");

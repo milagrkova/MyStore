@@ -28,6 +28,7 @@ public class AddressAndShipping {
     public void clickUpdate(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(updateButton)).click();
     }
+
     public void scrollDown(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,500)");

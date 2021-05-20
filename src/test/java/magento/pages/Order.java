@@ -50,6 +50,7 @@ public class Order {
     public void swichToIframe(){
         driver.switchTo().frame(0);
     }
+
     public String getPrintedDressDescriptionText() throws InterruptedException {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(printedDressDesc)).getText();
     }
