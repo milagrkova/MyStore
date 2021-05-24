@@ -32,22 +32,19 @@ public class BuyDressTest extends Global {
         order.swichToIframe();
         Assert.assertEquals(order.getPrintedDressDescriptionText(), "Printed evening dress with straight" +
                 " sleeves with black thin waist belt and ruffled linings.");
-        order.choosePinkColor();
         order.chooseQuantity();
         order.chooseSize();
         order.addToCard();
         order.switchToMainArea();
-//        Assert.assertEquals(order.getProductedAddedSuccesfullyText(), "Product successfully added to your shopping cart\n" +
-//                "\t\t\t\t");
+        Assert.assertEquals(order.getProductedAddedSuccesfullyText(), "Printed Dress");
         order.proceedToCheckOutButton();
         shoppingCard.cardQuantityDown();
-//        Assert.assertEquals(shoppingCard.getPrintedDressText(), "Color : Pink, Size : M");
-//        Assert.assertEquals(shoppingCard.getTotalPriceText(), "$101.98");
+        Assert.assertEquals(shoppingCard.getPrintedDressText(), "Color : Beige, Size : M");
+        Assert.assertEquals(shoppingCard.getTotalPriceText(), "$103.98");
         shoppingCard.scrollDown();
         Assert.assertEquals(shoppingCard.getAddressNameText(), "Mila Testira");
-        Assert.assertEquals(shoppingCard.getAddressAddressText(), "Skopje, Massachusetts 10000");
-        Assert.assertEquals(shoppingCard.getAddressCityText(), "Test address");
-        Assert.assertEquals(shoppingCard.getAddressPhoneText(), "09889889");
+        Assert.assertEquals(shoppingCard.getAddressAddressText(), "Skopje, Michigan 00000");
+        Assert.assertEquals(shoppingCard.getAddressPhoneText(), "0909090909");
         shoppingCard.proceed();
         addressAndShipping.scrollDown();
         addressAndShipping.clickUpdate();
@@ -57,11 +54,16 @@ public class BuyDressTest extends Global {
         addressAndShipping.checkTerms();
         Assert.assertEquals(payment.getProductPriceText(), "$50.99");
         Assert.assertEquals(payment.getShippingPriceText(), "$2.00");
-        Assert.assertEquals(payment.getTotalPriceText(), "$52.99");
+        Assert.assertEquals(payment.getTotalPriceText(), "Total products $50.99");
         payment.scrollDown();
         payment.payment();
         Assert.assertEquals(payment.getTotalAmountText(), "$52.99");
-//        Assert.assertEquals(payment.getCurrencyText(), "dollar");
+        Assert.assertEquals(payment.getBankWirePaymentText(), "BANK-WIRE PAYMENT.\n" +
+                "You have chosen to pay by bank wire. Here is a short summary of your order:\n" +
+                "- The total amount of your order comes to: $52.99 (tax incl.)\n" +
+                "- We allow the following currency to be sent via bank wire: Dollar\n" +
+                "- Bank wire account information will be displayed on the next page.\n" +
+                "- Please confirm your order by clicking \"I confirm my order.\".");
         payment.confirmOrder();
         Assert.assertEquals(payment.getCompleteOrderText(), "Your order on My Store is complete.");
 

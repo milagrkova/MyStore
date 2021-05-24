@@ -12,10 +12,10 @@ public class Payment {
     public WebDriverWait wait;
     By totalProductPrice = By.id("total_product");
     By totalShippingPrice = By.id("total_shipping");
-    By totalPrice = By.id("total_price");
+    By totalPrice = By.className("cart_total_price");
     By payByBankWire = By.className("bankwire");
     By totalAmount = By.id("amount");
-    By currency = By.xpath("//*[@id=\"center_column\"]/form/div/p[3]/input");
+    By bankWirePayment = By.className("cheque-box");
     By confirmOrder = By.xpath("//*[@id=\"cart_navigation\"]/button");
     By completeOrder = By.className("cheque-indent");
 
@@ -49,8 +49,8 @@ public class Payment {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(totalAmount)).getText();
     }
 
-    public String getCurrencyText(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(currency)).getText();
+    public String getBankWirePaymentText(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(bankWirePayment)).getText();
     }
 
     public void confirmOrder() {

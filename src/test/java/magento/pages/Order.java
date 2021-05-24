@@ -22,7 +22,7 @@ public class Order {
     By quantity = By.id("quantity_wanted");
     By iconPlus = By.className("icon-plus");
     By submit = By.id("add_to_cart");
-    By productAdded = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[1]/h2/text()");
+    By productAdded = By.id("layer_cart_product_title");
     By popUp = By.className("clearfix");
     By proceedToCheckOut = By.className("button-medium");
     By dropDownSize = By.id("uniform-group_1");

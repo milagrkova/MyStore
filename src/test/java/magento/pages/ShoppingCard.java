@@ -11,8 +11,8 @@ public class ShoppingCard {
     private WebDriver driver;
     private WebDriverWait wait;
     By minusCardQty = By.className("icon-minus");
-    By printedDressDesc = By.xpath("//a[contains(text(),'Color : Pink, Size : M')]");
-    By totalPrice = By.id("total_product_price_4_17_502642");
+    By printedDressDesc = By.xpath("/html/body/div/div[2]/div/div[3]/div/div[2]/table/tbody/tr/td[2]/small[2]/a");
+    By totalPrice = By.id("total_price");
     By adressName = By.className("address_name");
     By adressAddress = By.className("address_address1");
     By adddressCity = By.className("address_city");
